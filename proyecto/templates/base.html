@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESVG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-slate-100 font-sans antialiased">
+
+    <!-- Navbar Minimalista Superior -->
+    <header class="bg-[#0f172a]/80 backdrop-blur-md sticky top-0 z-50 border-b border-zinc-800 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            
+            <span class="text-lg font-bold tracking-wider uppercase text-zinc-100"><span class="text-red-500"></span></span>
+        </div>
+        <nav class="flex space-x-1 bg-zinc-900/90 p-1 rounded-xl border border-zinc-800">
+    <a href="{{ url_for('index') }}" class="px-4 py-2 text-sm font-medium rounded-lg transition hover:bg-zinc-800 hover:text-white">Mis Portafolios</a>
+
+    <a href="{{ url_for('cotizar') }}" class="px-4 py-2 text-sm font-medium rounded-lg transition hover:bg-zinc-800 hover:text-white">Cotizar</a>
+    <a href="{{ url_for('comprar') }}" class="px-4 py-2 text-sm font-medium rounded-lg transition hover:bg-zinc-800 hover:text-white">Comprar</a>
+    <a href="{{ url_for('vender') }}" class="px-4 py-2 text-sm font-medium rounded-lg transition hover:bg-zinc-800 hover:text-white">Vender</a>
+</nav>
+    </header>
+
+    <!-- Tablero de Acciones Fijo Estático -->
+    
+
+    <!-- Contenido Dinámico -->
+    <main class="max-w-6xl mx-auto p-8">
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>

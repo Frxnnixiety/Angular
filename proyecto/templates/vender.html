@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-md mx-auto bg-[#111827] p-6 rounded-2xl border border-zinc-800 shadow-xl">
+    <h2 class="text-xl font-bold text-white mb-1">Liquidar Activos</h2>
+    <p class="text-xs text-zinc-400 mb-5">Registra la venta de acciones para actualizar los rendimientos del portafolio.</p>
+    
+    <form method="POST" class="space-y-4">
+        <div>
+            <label class="block text-xs text-zinc-500 font-bold uppercase mb-2">Portafolio de Origen</label>
+            <select name="portafolio" required class="w-full bg-zinc-900 border border-zinc-800 rounded-xl p-3 text-white focus:outline-none focus:border-yellow-500">
+                {% for p_nombre in portfolios.keys() %}
+                    <option value="{{ p_nombre }}">{{ p_nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label class="block text-xs text-zinc-500 font-bold uppercase mb-2">Empresa o Símbolo</label>
+            <input type="text" name="simbolo" required placeholder="Ej: IBM" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl p-3 text-white placeholder-zinc-600 focus:outline-none focus:border-yellow-500">
+        </div>
+
+        <div>
+            <label class="block text-xs text-zinc-500 font-bold uppercase mb-2">Cantidad a Vender</label>
+            <input type="number" name="cantidad" min="1" required placeholder="0" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl p-3 text-white placeholder-zinc-600 focus:outline-none focus:border-yellow-500">
+        </div>
+
+        <button type="submit" class="w-full bg-rose-500 text-neutral-950 font-bold p-3 rounded-xl hover:bg-rose-400 transition pt-3">Ejecutar Venta</button>
+    </form>
+</div>
+{% endblock %}
